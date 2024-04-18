@@ -16,19 +16,11 @@ jobs:
     - name: Checkout source
       uses: actions/checkout@v4.1.2
       
-    - name: Setup .NET Core
-      uses: actions/setup-go@v5.0.0
-      with:
-        go-version: 1.19
-        
-    - name: Install dependencie
-      run: go mod tidy
-      
     - name: go-cross-build
       uses: thatisuday/go-cross-build@v1.0.2
       with:
             platforms: 'linux/amd64, darwin/amd64, windows/amd64'
-            package: 'gitee_cli'
+            package: ''
             name: 'gitee_cli'
             compress: 'true'
             dest: 'dist'
